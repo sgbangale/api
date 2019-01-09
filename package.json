@@ -1,1 +1,22 @@
-
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "web api for application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sgbangale/api.git"
+  },
+  "keywords": [
+    "api"
+  ],
+  "author": "sgbangale@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sgbangale/api/issues"
+  },
+  "homepage": "https://github.com/sgbangale/api#readme"
+}
