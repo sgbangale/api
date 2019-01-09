@@ -1,22 +1,13 @@
 {
-  "name": "api",
+  "name": "node-sandbox",
   "version": "1.0.0",
-  "description": "web api for application",
-  "main": "index.js",
+  "description": "Simple Node Sandbox",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon src/index.js localhost 8080"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sgbangale/api.git"
-  },
-  "keywords": [
-    "api"
-  ],
-  "author": "sgbangale@gmail.com",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sgbangale/api/issues"
-  },
-  "homepage": "https://github.com/sgbangale/api#readme"
+  "dependencies": {},
+  "devDependencies": {
+    "nodemon": "1.18.4"
+  }
 }
