@@ -1,0 +1,20 @@
+npm init
+
+npm install typescript -s
+
+Inside our package.json we will put a script called tsc:
+"scripts": {
+    "tsc": "tsc"
+},
+
+npm run tsc -- --init
+This command initializes the typescript project by creating the tsconfig.json file. 
+Within this file we will uncomment the outDiroption and choose a location for the transpiled .js files to be delivered
+
+
+npm install express -s
+
+Express and Typescript packages are independent. The consequence of this is that Typescript does not “know” types of Express classes. 
+There is a specific npm package for the Typescript to recognize the Express types.
+
+npm install @types/express -s
