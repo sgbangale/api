@@ -7,10 +7,12 @@ const requestBAL = {
         try {
             if (req.request_type === 'request__view') {
                 result.request_output_data = await request.find(req.request_data);
-            } else {                
+            } else {
                 result.request_output_data = await require('.././../businessLogic')[req.request_type](req);
             }
+            result.request_status = 'FINISHED';
         } catch (e) {
+            result.request_status = 'FAILED';
             result.request_output_data = e;
         }
 

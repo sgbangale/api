@@ -1,9 +1,12 @@
 const entity = require('../models/entity'),
-    fs = require('fs');
+    entityAccess = require('../models/entityAccess'),
+    fs = require('fs'),
+    async = require('async'),
+        util = require('util');
 
 const helper = {
-    generate_model: (entityData) => {
-        var schemaData = JSON.stringify(entityData.entity_schema)
+    generate_modelFile: (entityData) => {
+        let schemaData = JSON.stringify(entityData.entity_schema)
             .replace(/"String"/g, 'String')
             .replace(/"Date"/g, 'Date')
             .replace(/"Number"/g, 'Number')
@@ -17,20 +20,125 @@ const helper = {
         const mongoose = require('mongoose');
         mongoose.model('` + entityData.entity_code + `', mongoose.Schema(` + schemaData + `));
         module.exports = mongoose.model('` + entityData.entity_code + `');`;
-        let filePath =require('../../models').getPath() +'\\'+ entityData.entity_code + '.js';        
+        let filePath = require('../../models').getPath() + '\\' + entityData.entity_code + '.js';
         fs.writeFileSync(filePath, fileContent)
     },
+    generate_accessCodeFile: (accessCodes) => {
+        let result = '';
+        accessCodes.forEach(element => {
+            result = result + element.entity_access_js;
+        });
+        return result;
+    },
+    code_delete: (ecode) => {
+        let jscode = `  bal.${ecode}__delete = async (req)=>
+        {
+            const ${ecode} = require('../models/${ecode}');
+            console.log('delete');
+            return await ${ecode}.delete(req.request_data);
+        };`
+
+        return {
+            entity_code: ecode,
+            entity_access_code: `${ecode}__delete`,
+            entity_access_js: jscode,
+            entity_access_active: false
+        };
+    },
+    code_view: (ecode) => {
+        let jscode = `  bal.${ecode}__view = async (req)=>
+        {
+            const ${ecode} = require('../models/${ecode}');
+            console.log('view');
+            return await ${ecode}.find(req.request_data);
+        };`
+
+        return {
+            entity_code: ecode,
+            entity_access_code: `${ecode}__view`,
+            entity_access_js: jscode,
+            entity_access_active: false
+        };
+    },
+    code_create: (ecode) => {
+        let jscode = `  bal.${ecode}__create = async (req)=>
+        {
+            const ${ecode} = require('../models/${ecode}');
+            console.log('create');
+            return await ${ecode}.create(req.request_data);
+        };`
+
+        return {
+            entity_code: ecode,
+            entity_access_code: `${ecode}__create`,
+            entity_access_js: jscode,
+            entity_access_active: false
+        };
+    },
+    generate_accessCode: (accessCodes, ecode) => {
+        let result = [];
+        console.log(ecode);
+        result.push(helper.code_create(ecode));
+        result.push(helper.code_delete(ecode));
+        result.push(helper.code_view(ecode));
+
+        accessCodes.forEach(element => {
+            let jscode = `  bal.${element} = async (req)=>
+            {
+                console.log('${element}');
+                return await req;
+            };`
+
+            let entityaccess = {
+                entity_code: ecode,
+                entity_access_code: element,
+                entity_access_js: jscode,
+                entity_access_active: false
+            };
+            result.push(entityaccess);
+        });
+        return result;
+    },
+
+    generate_accessFile: async (entity, entity_access) => {
+        const filePath = require('../../businessLogic').getPath() + '\\bal.js';
+        try {
+            let fileContent = await (util.promisify(fs.readFile))(filePath, {
+                encoding: 'UTF-8'
+            });
+            let accessCode = `
+        ${await helper.generate_accessCodeFile(entity_access,entity.entity_code)}
+        module.exports = bal;
+        `;
+            let updatedFileContent = fileContent.toString().replace('module.exports = bal;', accessCode);
+            fs.writeFileSync(filePath, updatedFileContent);
+        } catch (e) {
+            throw e;
+        }
+    }
 
 }
 
 module.exports = {
     entity__create: async (req) => {
-        let dbResult = await entity.create(req.request_data)
-        console.log(dbResult);
-        helper.generate_model(dbResult);
+        console.log(req.request_data);
+        let accessdata = helper.generate_accessCode(req.request_data.entity_access, req.request_data.entity_code);
+        let [res1, res2] = await Promise.all([await entity.create(req.request_data), await entityAccess.create(accessdata)]);
+        return res1;
+    },
+    entity__build: async (req) => {
+        let [res1, res2] = await Promise.all([
+            await entity.findById(req.request_data.entityId),
+            await entityAccess.find({
+                entity_code: req.request_data.entity_code
+            })
+        ]);
+
+        if (res1) {
+            helper.generate_modelFile(res1);
+            if (res2) {
+                helper.generate_accessFile(res1, res2)
+            }
+        }
     }
-
-
-
-
 };
