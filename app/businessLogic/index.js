@@ -1,5 +1,5 @@
 const bal = require('./bal');
-const entityBal = require('../entities/business')
+const entityBal = require('../infra/business/entitybal')
 
 module.exports = {
     ...bal,

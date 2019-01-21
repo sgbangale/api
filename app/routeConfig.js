@@ -1,4 +1,4 @@
-const request = require('./request');
+const request = require('../app/infra/routes/request');
 module.exports = [
-  {'route':'request','routeObj':request.router}
+  {'route':'request','routeObj':request}
 ];

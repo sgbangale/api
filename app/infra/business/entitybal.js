@@ -1,8 +1,7 @@
 const entity = require('../models/entity'),
     entityAccess = require('../models/entityAccess'),
     fs = require('fs'),
-    async = require('async'),
-        util = require('util');
+    util = require('util');
 
 const helper = {
     generate_modelFile: (entityData) => {
@@ -118,6 +117,9 @@ const helper = {
     }
 
 }
+
+
+
 
 module.exports = {
     entity__create: async (req) => {
