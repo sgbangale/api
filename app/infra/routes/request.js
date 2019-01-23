@@ -1,9 +1,12 @@
 const express = require('express'),
 common = require('../../common'),
-bal = require('../business/requestbal')
+bal = require('../business/requestbal'),
+middlewares = require('../../common/middlewares');
 
 const router = express.Router();
-router.post('/', async (req, res) =>{
+router.post('/',
+middlewares.auth(), 
+async (req, res) =>{
     let response =  await bal.createRequest(common.helper.requestParser(req));
     res.send(response);
 });

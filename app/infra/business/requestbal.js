@@ -12,6 +12,7 @@ const requestBAL = {
             }
             result.request_status = 'FINISHED';
         } catch (e) {
+            console.log(e);
             result.request_status = 'FAILED';
             result.request_output_data = e;
         }

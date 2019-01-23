@@ -31,6 +31,9 @@ app.use(function(req, res, next) {
     next();
   });
 
+app.use('/token',(req,res)=>{
+
+});
 // router goes here 
 routeConfig.forEach((route)=>{
     app.use('/'+route.route,route.routeObj);

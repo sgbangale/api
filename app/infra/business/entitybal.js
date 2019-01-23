@@ -47,9 +47,10 @@ const helper = {
     code_view: (ecode) => {
         let jscode = `  bal.${ecode}__view = async (req)=>
         {
-            const ${ecode} = require('../models/${ecode}');
-            console.log('view');
-            return await ${ecode}.find(req.request_data);
+            //const ${ecode} = require('../models/${ecode}');
+            //console.log('view');
+            //return await ${ecode}.find(req.request_data);
+            return await helper.entityView(req.request_data,require('../models/${ecode}'));
         };`
 
         return {
