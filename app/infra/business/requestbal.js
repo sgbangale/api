@@ -1,5 +1,5 @@
 const request = require('../models/request')
-
+const common = require('../../common/index')
 const requestBAL = {
     createRequest: async (req) => {
         let result = { ...req
@@ -11,20 +11,30 @@ const requestBAL = {
                 result.request_output_data = await require('../../businessLogic')[req.request_type](req);
             }
             result.request_status = 'FINISHED';
+        } catch (e) {            
+            console.log(e);
+            result.request_status = 'FAILED';
+            result.request_output_data = e;
+        }
+
+        //return result;
+        return  common.helper.respondMaker( result.request_status === 'FAILED' ? 'Error Ocurred while processing request.':''  ,result.request_output_data,result.request_status === 'FINISHED' ) ;
+    },
+    viewRequest: async (requestData) => {
+        let result = { ...requestData
+        };
+        try {
+            if (requestData.request_type.indexOf('__view') != -1) {
+                result.request_output_data = await require('../../businessLogic')[requestData.request_type](requestData);
+            }
+            result.request_status = 'FINISHED';
         } catch (e) {
             console.log(e);
             result.request_status = 'FAILED';
             result.request_output_data = e;
         }
 
-        return result;
-    },
-    viewRequest: async (requestData) => {
-        try {
-            return await request.find(requestData)
-        } catch {
-            return null;
-        }
+        return  common.helper.respondMaker( result.request_status === 'FAILED' ? 'Error Ocurred while processing request.':''  ,result.request_output_data,result.request_status === 'FINISHED' ) ;
     },
     deleteEntity: (requestData) => {
 

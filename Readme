@@ -1,20 +1,38 @@
-npm init
+This is multipurpose api built on nodejs express framework and mongo database.
+This api will do following tasks
+1. Entity
+    System has ability to construct entity and its schemas.
+    Each entity created with associated entity access.    
+    After entity creation there is api which actually builds code for that entity with possible standard entity access like create,read,update,delete with standard handler functions.
+    user can modify those function in entity access feature.
 
-npm install typescript -s
+2. Entity Access Codes
+    Each entity access is created against entity.
+    System allows various entity access codes, each access code allow user to perform set of operation.
+    Access code have associated handler function which gives request object and handle 
+    user can customize standard access code handler functions.
+    user can add/modify delete entity access against entity.
 
-Inside our package.json we will put a script called tsc:
-"scripts": {
-    "tsc": "tsc"
-},
+3. Gloabal Access Codes     <TODO>
 
-npm run tsc -- --init
-This command initializes the typescript project by creating the tsconfig.json file. 
-Within this file we will uncomment the outDiroption and choose a location for the transpiled .js files to be delivered
+4. Role Creation
+    System will allow multiple roles, each role has multiple access codes 'entity__accessCode' format.
+    Roles can assigned to users.
+    Users can have multiple roles <TODO>
+
+5. User Creation
+    Each user is associated with role and can perform entity access associated with the assigned role.
+    Each user is authenticated and system will provide authenticated users token  to front end.
+
+6. Views
+    Each entity has multiple Views
+    View has all fields associated with entity.
+    Each field have two level of access  ??
+        CanView
+        CanEdit
+
+    View have ability to control which information user can see while viewing,editing or creating entity records.
+    Users can have multiple view access but can have single edit access ??
 
 
-npm install express -s
 
-Express and Typescript packages are independent. The consequence of this is that Typescript does not “know” types of Express classes. 
-There is a specific npm package for the Typescript to recognize the Express types.
-
-npm install @types/express -s

@@ -1,7 +1,8 @@
 const user = require('../models/user'),
     common = require('../../common/index'),
     role = require('../models/role'),
-    jwt = require('jsonwebtoken');
+    jwt = require('jsonwebtoken'),
+    appsettings = require('../business/appsettings');
 module.exports = {
     role__create: async (req) => {
         return await role.create(req.request_data);
@@ -41,25 +42,32 @@ module.exports = {
                         iat: Math.floor(Date.now() / 1000),
                         exp: Math.floor(((Date.now() / 1000) + Number.parseInt(process.env.TOKEN_TIME_EXPIRE_IN_SECOND)))
                     }, process.env.SECRET);
+                    
+                    let navigation =await appsettings.appsettings__view();
 
-                    return {
+                    return common.helper.respondMaker('',
+                    {
                         token: token,
                         user_name: userObj.user_name,
                         first_name: userObj.first_name,
                         last_name: userObj.last_name,
                         role_code: userObj.user_role,
                         iat: Math.floor(Date.now() / 1000),
-                        exp: Math.floor(((Date.now() / 1000) + Number.parseInt(process.env.TOKEN_TIME_EXPIRE_IN_SECOND)))
-                    };
+                        exp: Math.floor(((Date.now() / 1000) + Number.parseInt(process.env.TOKEN_TIME_EXPIRE_IN_SECOND))),
+                        navigation :JSON.stringify(navigation)
+                    }
+                    ,true);
+                     
                 } else {
-                    throw common.helper.respondMaker('user name or password are incorrect.');
+                    throw common.helper.respondMaker('user name or password are incorrect.',null,false);
                 }
             }
             else{
-                throw common.helper.respondMaker('user not found.');
+                throw common.helper.respondMaker('user not found.',null,false);
             }
         } catch (e) {
-            throw e;
+            console.log(e);
+            throw common.helper.respondMaker('user not found.',null,false);;
         }
 
 

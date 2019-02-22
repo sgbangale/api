@@ -9,10 +9,9 @@ router.post('/', async (req, res) =>{
     }
     catch(e)
     {
-        return res.status(200).send({
-            success: false,
-            message: e
-        });
+       
+        return res.send(e);
+        
     }
 });
 module.exports = router;

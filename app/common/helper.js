@@ -6,7 +6,7 @@ const helper = {
                 .sort(condition.sortFields)
                 .count();
 
-                    let result = await entity.where(condition.filters)
+                    let result = await entity.where(condition.filters).select(condition.removeColumns)
                     .sort(condition.sortFields)
                     .skip(condition.first).limit(condition.rows);
                     
@@ -15,6 +15,7 @@ const helper = {
                         count: count
                     }
             } catch (e) {
+               
 throw e;
             }
         }
@@ -32,9 +33,25 @@ throw e;
             request_comments: req.headers['request_comments']
         }
     },
-    respondMaker: (errorMessage) => {
+    requestGetByIdParser: (req) => {
         return {
-            message: errorMessage
+            request_type: req.query.request_type,
+            request_intiator: req.LoggedInUser.user_name,
+            request_data: {
+                filters:{ _id: req.query.id},
+                sortFields:'',
+                first:0,
+                rows:1
+            } ,
+            request_created_date: Date.now(),
+            request_status: 'CREATED'
+        }
+    },
+    respondMaker: (errorMessage,body,isSucess) => {
+        return {
+            message: errorMessage,
+            body : body,
+            isSucess :isSucess
         }
     }
 }

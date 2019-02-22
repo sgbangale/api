@@ -23,7 +23,7 @@ const middleware = {
                       });
                     }
                     if(result){
-                        if(result.role_entity_access.indexOf(request_type) != -1 || result.role_entity_access.indexOf('ALL') != -1)
+                        if(result.role_entity_access.indexOf(request_type) != -1 || result.role_entity_access.indexOf('ALL') != -1 || result.role_entity_access === 'app__settings')
                     {
                       req.LoggedInUser = decoded.User;
                       next();

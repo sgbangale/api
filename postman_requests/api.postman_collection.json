@@ -1,0 +1,369 @@
+{
+	"variables": [],
+	"info": {
+		"name": "api",
+		"_postman_id": "47adfbe3-900b-16eb-7edf-f004761de949",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "entity__create",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/request?request_type=entity__create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"request"
+					],
+					"query": [
+						{
+							"key": "request_type",
+							"value": "entity__create",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7InVzZXJfbmFtZSI6InNnYmFuZ2FsZUBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoic3VyYWoiLCJsYXN0X25hbWUiOiJiYW5nYWxlIiwiaWQiOiI1YzQ3MmMzOGU2MzRjZjFmYWNhN2Y1NWEiLCJyb2xlX2NvZGUiOiJhZG1pbiJ9LCJpYXQiOjE1NDgyNDY1NjEsImV4cCI6MTU0ODI0OTU2MX0.08JsnDUV42XJmzFgfY0xjrEuguJtMTrNaJwpuvKQ6hA",
+						"description": ""
+					},
+					{
+						"key": "Conte",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"request_data\" :{\r\n  \"entity_code\" : \"product\",\r\n  \"entity_name\" : \"Products\",\r\n  \"entity_access\":[\"product__markactive\"],\r\n  \"entity_active\":true,\r\n  \"entity_schema\":{\r\n    \"product_name\":{\"type\":\"String\"},\r\n    \"quantity\":{\"type\":\"Number\"},\r\n    \"deliveryDate\":{\"type\":\"Date\"}\r\n  }\r\n}\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "entity__build",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/request?request_type=entity__build",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"request"
+					],
+					"query": [
+						{
+							"key": "request_type",
+							"value": "entity__build",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7InVzZXJfbmFtZSI6InNnYmFuZ2FsZUBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoic3VyYWoiLCJsYXN0X25hbWUiOiJiYW5nYWxlIiwiaWQiOiI1YzQ3MmMzOGU2MzRjZjFmYWNhN2Y1NWEiLCJyb2xlX2NvZGUiOiJhZG1pbiJ9LCJpYXQiOjE1NDgyNDY1NjEsImV4cCI6MTU0ODI0OTU2MX0.08JsnDUV42XJmzFgfY0xjrEuguJtMTrNaJwpuvKQ6hA",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"request_data\" :{\r\n  \"entityId\":\"5c485f730333ec211c2d8e3b\",\r\n  \"entity_code\":\"product\"\r\n}\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "order__create",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/request?request_type=order__create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"request"
+					],
+					"query": [
+						{
+							"key": "request_type",
+							"value": "order__create",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7InVzZXJfbmFtZSI6InNnYmFuZ2FsZUBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoic3VyYWoiLCJsYXN0X25hbWUiOiJiYW5nYWxlIiwiaWQiOiI1YzQ3MmMzOGU2MzRjZjFmYWNhN2Y1NWEiLCJyb2xlX2NvZGUiOiJhZG1pbiJ9LCJpYXQiOjE1NDgyNDIyMzUsImV4cCI6MTU0ODI0NTIzNX0.0jFPSb4GiGEulz464z4NJC1RHle6j8A7Vrj11INDv80",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"request_data\":\n\t{\n\t\t\"order_name\":\"my  final order\",\n\t\t\"quantity\":18\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "order__view",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/request?request_type=order__view",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"request"
+					],
+					"query": [
+						{
+							"key": "request_type",
+							"value": "order__view",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7InVzZXJfbmFtZSI6InNnYmFuZ2FsZUBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoic3VyYWoiLCJsYXN0X25hbWUiOiJiYW5nYWxlIiwiaWQiOiI1YzQ3MmMzOGU2MzRjZjFmYWNhN2Y1NWEiLCJyb2xlX2NvZGUiOiJhZG1pbiJ9LCJpYXQiOjE1NDgyNDcxNjksImV4cCI6MTU0ODI1MDE2OX0.gzAyQI-JaZk0yX8QuCWzMhdbLUMWDmIVHgwpBMCICUI",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"request_data\"\t:{\n\"filters\":{ },\n\"sortFields\":\"-quantity id\",\n\"first\":0,\n\"rows\":2\n}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "user__create",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/request?request_type=user__create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"request"
+					],
+					"query": [
+						{
+							"key": "request_type",
+							"value": "user__create",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7InVzZXJfbmFtZSI6InNnYmFuZ2FsZUBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoic3VyYWoiLCJsYXN0X25hbWUiOiJiYW5nYWxlIiwiaWQiOiI1YzQ3MmMzOGU2MzRjZjFmYWNhN2Y1NWEiLCJyb2xlX2NvZGUiOiJhZG1pbiJ9LCJpYXQiOjE1NDgyNDAzODcsImV4cCI6MTU0ODI0MzM4N30.8c6iGUjwGkyMRZHYJa9OGfzgd9YSKHg_5NSfXQ6Lb7c",
+						"description": ""
+					},
+					{
+						"key": "Conte",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"request_data\" :{\r\n  \"user_name\":\"sgbangale@amail.com\",\r\n  \"first_name\":\"suraj\",\r\n  \"last_name\":\"angale\",\r\n  \"password\":\"password\",\r\n  \"email\":\"sgbangale@amail.com\",\r\n  \"user_role\":\"user\",\r\n  \"user_active\":true\r\n}\r\n}\r\n"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "token ",
+			"request": {
+				"url": "http://localhost:3000/account/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7IkVtYWlsQWRkcmVzcyI6InNnYmFuZ2FsZUBhbWFpbC5jb20iLCJGaXJzdE5hbWUiOiJTdXJhaiBCIiwiTGFzdE5hbWUiOiJCYW5nYWxlIiwiSWQiOiI1YjAyY2E0NWM4MTQ0MzMxNGM1OTVkMjkifSwiUm9sZSI6ImFkbWluIiwiaWF0IjoxNTQ3MDIzNzE5LCJleHAiOjE1NDcwMjczMTl9.rK2pJYq2NZ6qbXU4pNLBXHcN-s7ck5apP0oyECeS1Tc",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Conte",
+						"value": "application/json",
+						"description": "",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"user_name\":\"sgbangale@gmail.com\",\n\t\"password\":\"password\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "role__create",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/request?request_type=role__create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"request"
+					],
+					"query": [
+						{
+							"key": "request_type",
+							"value": "role__create",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7InVzZXJfbmFtZSI6InNnYmFuZ2FsZUBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoic3VyYWoiLCJsYXN0X25hbWUiOiJiYW5nYWxlIiwiaWQiOiI1YzQ3MmMzOGU2MzRjZjFmYWNhN2Y1NWEiLCJyb2xlX2NvZGUiOiJhZG1pbiJ9LCJpYXQiOjE1NDgyNDAzODcsImV4cCI6MTU0ODI0MzM4N30.8c6iGUjwGkyMRZHYJa9OGfzgd9YSKHg_5NSfXQ6Lb7c",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"request_data\":\n\t{\n\t\t \"role_code\":\"admin\",\n    \"role_name\":\"Administrator\",\n    \"role_description\": \"Super Admin role having all access of all entity\",\n    \"role_active\": true,\n    \"role_entity_access\": [\"ALL\"]\n\t}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "order__view by id",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/request?request_type=order__view&id=5c484d6630425b3f6c2bf9c0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"request"
+					],
+					"query": [
+						{
+							"key": "request_type",
+							"value": "order__view",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "id",
+							"value": "5c484d6630425b3f6c2bf9c0",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7InVzZXJfbmFtZSI6InNnYmFuZ2FsZUBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoic3VyYWoiLCJsYXN0X25hbWUiOiJiYW5nYWxlIiwiaWQiOiI1YzQ3MmMzOGU2MzRjZjFmYWNhN2Y1NWEiLCJyb2xlX2NvZGUiOiJhZG1pbiJ9LCJpYXQiOjE1NDgyNjMwMDUsImV4cCI6MTU0ODI2NjAwNX0.wn7A4avjM2VPVS0VgvMyGShDaKPKqKpA4QPKN8LkTwg",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"request_data\"\t:{\n\"filters\":{ },\n\"sortFields\":\"-quantity id\",\n\"first\":0,\n\"rows\":2\n}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

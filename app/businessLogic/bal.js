@@ -8,11 +8,11 @@ const bal = {};
             return await order.create(req.request_data);
         };  bal.order__delete = async (req)=>
         {
-            const order = require('../models/order');
-            console.log('delete');
+            const order = require('../models/order');            
             return await order.delete(req.request_data);
         };  bal.order__view = async (req)=>
         {
+            //console.log(require('../models/order').schema.obj);
             return await helper.entityView(req.request_data,require('../models/order'));
         };  bal.order_markinactive = async (req)=>
             {
@@ -36,9 +36,6 @@ const bal = {};
             return await product.delete(req.request_data);
         };  bal.product__view = async (req)=>
         {
-            //const product = require('../models/product');
-            //console.log('view');
-            //return await product.find(req.request_data);
             return await helper.entityView(req.request_data,require('../models/product'));
         };  bal.product__markactive = async (req)=>
             {
@@ -46,10 +43,3 @@ const bal = {};
                 return await req;
             };
         module.exports = bal;
-        
-        
-        
-        
-        
-        
-        

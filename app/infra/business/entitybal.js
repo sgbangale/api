@@ -1,6 +1,7 @@
 const entity = require('../models/entity'),
     entityAccess = require('../models/entityAccess'),
     fs = require('fs'),
+    viewHelper = require('../../common/helper'),
     util = require('util');
 
 const helper = {
@@ -47,9 +48,6 @@ const helper = {
     code_view: (ecode) => {
         let jscode = `  bal.${ecode}__view = async (req)=>
         {
-            //const ${ecode} = require('../models/${ecode}');
-            //console.log('view');
-            //return await ${ecode}.find(req.request_data);
             return await helper.entityView(req.request_data,require('../models/${ecode}'));
         };`
 
@@ -123,6 +121,10 @@ const helper = {
 
 
 module.exports = {
+    entityaccess__view : async (req)=>
+        {  
+            return await viewHelper.entityView(req.request_data,require('../models/entityAccess'));
+        },
     entity__create: async (req) => {
         console.log(req.request_data);
         let accessdata = helper.generate_accessCode(req.request_data.entity_access, req.request_data.entity_code);

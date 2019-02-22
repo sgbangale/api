@@ -11,13 +11,17 @@ async (req, res) =>{
     res.send(response);
 });
 
-router.get('/',async (req,res)=>{
+router.get('/',
+middlewares.auth(), 
+async (req,res)=>{
     try{
-    let result = await bal.viewRequest(common.helper.requestParser(req));
+    let result = await bal.viewRequest(common.helper.requestGetByIdParser(req));
     res.send(result);
     }
     catch(exception) {
-        res.send('error occuerred');
+        return res.send(common.helper.respondMaker('error occurred while processing your request',
+        e
+        ,false));
     }
 });
 
