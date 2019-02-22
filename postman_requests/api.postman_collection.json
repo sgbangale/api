@@ -177,13 +177,13 @@
 					},
 					{
 						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7InVzZXJfbmFtZSI6InNnYmFuZ2FsZUBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoic3VyYWoiLCJsYXN0X25hbWUiOiJiYW5nYWxlIiwiaWQiOiI1YzQ3MmMzOGU2MzRjZjFmYWNhN2Y1NWEiLCJyb2xlX2NvZGUiOiJhZG1pbiJ9LCJpYXQiOjE1NDgyNDcxNjksImV4cCI6MTU0ODI1MDE2OX0.gzAyQI-JaZk0yX8QuCWzMhdbLUMWDmIVHgwpBMCICUI",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7InVzZXJfbmFtZSI6InNnYmFuZ2FsZUBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoic3VyYWoiLCJsYXN0X25hbWUiOiJiYW5nYWxlIiwiaWQiOiI1YzQ3MmMzOGU2MzRjZjFmYWNhN2Y1NWEiLCJyb2xlX2NvZGUiOiJhZG1pbiJ9LCJpYXQiOjE1NDg3NjY5NjQsImV4cCI6MTU0ODc2OTk2NH0.jWYNpfWY1pYgIiTM587tosEMPIcgPYfwJQt-bOiSCjU",
 						"description": ""
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"request_data\"\t:{\n\"filters\":{ },\n\"sortFields\":\"-quantity id\",\n\"first\":0,\n\"rows\":2\n}\n}"
+					"raw": "{\n\"request_data\"\t:{\n\"filters\":{\n  \"quantity\": 18\n\t},\n\"sortFields\":\"-quantity id\",\n\"first\":0,\n\"rows\":2\n}\n}"
 				},
 				"description": ""
 			},
@@ -353,7 +353,95 @@
 					},
 					{
 						"key": "token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7InVzZXJfbmFtZSI6InNnYmFuZ2FsZUBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoic3VyYWoiLCJsYXN0X25hbWUiOiJiYW5nYWxlIiwiaWQiOiI1YzQ3MmMzOGU2MzRjZjFmYWNhN2Y1NWEiLCJyb2xlX2NvZGUiOiJhZG1pbiJ9LCJpYXQiOjE1NDgyNjMwMDUsImV4cCI6MTU0ODI2NjAwNX0.wn7A4avjM2VPVS0VgvMyGShDaKPKqKpA4QPKN8LkTwg",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7InVzZXJfbmFtZSI6InNnYmFuZ2FsZUBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoic3VyYWoiLCJsYXN0X25hbWUiOiJiYW5nYWxlIiwiaWQiOiI1YzQ3MmMzOGU2MzRjZjFmYWNhN2Y1NWEiLCJyb2xlX2NvZGUiOiJhZG1pbiJ9LCJpYXQiOjE1NTA2NjU0MDksImV4cCI6MTU1MDY2ODQwOX0.mZJ2rxMI-_33slzzf_zIoy3AIL9DVy6nGK9ZOvcDtBQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"request_data\"\t:{\n\"filters\":{ },\n\"sortFields\":\"-quantity id\",\n\"first\":0,\n\"rows\":2\n}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "entityaccess__view",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/request?request_type=entityaccess__view",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"request"
+					],
+					"query": [
+						{
+							"key": "request_type",
+							"value": "entityaccess__view",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7InVzZXJfbmFtZSI6InNnYmFuZ2FsZUBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoic3VyYWoiLCJsYXN0X25hbWUiOiJiYW5nYWxlIiwiaWQiOiI1YzQ3MmMzOGU2MzRjZjFmYWNhN2Y1NWEiLCJyb2xlX2NvZGUiOiJhZG1pbiJ9LCJpYXQiOjE1NTA3MzgxMTksImV4cCI6MTU1MDc0MTExOX0.FVChE_QMFtbrjg3kDdDV81F6XcjMXGcMVvRKUbEkrHs",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"request_data\"\t:{\n\"filters\":{\n  \n\t},\n\"sortFields\":\"entity_code\",\n\"removeColumns\":\"-entity_access_js -__v\",\n\"first\":0,\n\"rows\":200\n}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "appsettings__view",
+			"request": {
+				"url": {
+					"raw": "http://localhost:3000/request?request_type=appsettings__view",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"request"
+					],
+					"query": [
+						{
+							"key": "request_type",
+							"value": "appsettings__view",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VyIjp7InVzZXJfbmFtZSI6InNnYmFuZ2FsZUBnbWFpbC5jb20iLCJmaXJzdF9uYW1lIjoic3VyYWoiLCJsYXN0X25hbWUiOiJiYW5nYWxlIiwiaWQiOiI1YzQ3MmMzOGU2MzRjZjFmYWNhN2Y1NWEiLCJyb2xlX2NvZGUiOiJhZG1pbiJ9LCJpYXQiOjE1NTA3MzgxMTksImV4cCI6MTU1MDc0MTExOX0.FVChE_QMFtbrjg3kDdDV81F6XcjMXGcMVvRKUbEkrHs",
 						"description": ""
 					}
 				],
