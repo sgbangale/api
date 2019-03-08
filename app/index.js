@@ -7,7 +7,7 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const routeConfig = require('./routeConfig');
 
-
+console.log(process.env);
 
 
 const port =process.env.PORT || 8080;
