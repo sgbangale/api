@@ -45,6 +45,6 @@ app.get('/', function (req, res) {
 
 app.listen(port, ip,function(){
     console.log('env:');
-    console.log(process.env.ENVNAME);
+    console.log(process.env);
     console.log('Server running (***) on http://%s:%s', ip, port);
 });

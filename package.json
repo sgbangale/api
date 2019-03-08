@@ -4,7 +4,7 @@
   "description": "Simple Node Sandbox",
   "main": "app/index.js",
   "scripts": {
-    "start": "node .",
+    "start": "node app/index.js",
     "dev": "nodemon app/index.js"
   },
   "dependencies": {
