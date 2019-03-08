@@ -15,7 +15,7 @@ module.exports = {
                     sortFields:'entity_code',
                     removeColumns:"-entity_access_js -__v -entity_access_active -_id",
                     first:0,
-                    rows:2000
+                    rows:0
                     }
                 };
             let entityOperations = await viewHelper.entityView(request_data.entityAccess,require('../models/entityAccess'));
@@ -27,7 +27,8 @@ module.exports = {
                 }
               });
             
-              returnData.AccessibleOperations = _.groupBy(entityOperations.data,'entity_code');
+              let withoutEntity_viewAccessData = _.filter(entityOperations.data,x=> x.entity_access_code.indexOf('__view') == -1);
+              returnData.AccessibleOperations = _.groupBy(withoutEntity_viewAccessData,'entity_code');
 
               return returnData;
 

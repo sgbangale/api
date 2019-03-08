@@ -9,7 +9,7 @@ const middleware = {
             if (token) {
               jwt.verify(token, process.env.SECRET, function (err, decoded) {
                 if (err) {        
-                  return res.json({
+                  return res.status(401).send({
                     success: false,
                     message: 'Failed to authenticate token.'
                   });
@@ -17,7 +17,7 @@ const middleware = {
                     
                     role.findOne({role_code : decoded.User.role_code}, function (e, result) {
                     if (e) {
-                      return res.status(403).send({
+                      return res.status(401).send({
                         success: false,
                         message: 'Unathorized rolE'
                       });
@@ -29,7 +29,7 @@ const middleware = {
                       next();
                     }
                     else {
-                      return res.status(403).send({
+                      return res.status(401).send({
                         success: false,
                         message: 'Authorization is failed. User role dont have sufficient rights.'
                       });
@@ -37,7 +37,7 @@ const middleware = {
                     }
                     else
                     {
-                        return res.status(403).send({
+                        return res.status(401).send({
                             success: false,
                             message: 'Unathorized role'
                           });

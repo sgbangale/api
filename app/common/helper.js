@@ -8,8 +8,8 @@ const helper = {
 
                     let result = await entity.where(condition.filters).select(condition.removeColumns)
                     .sort(condition.sortFields)
-                    .skip(condition.first).limit(condition.rows);
-                    
+                    .skip(condition.first).limit((condition.rows == 0 ? count :condition.rows));
+                   
                     return {
                         data: result,
                         count: count
