@@ -54,7 +54,8 @@ module.exports = {
                         role_code: userObj.user_role,
                         iat: Math.floor(Date.now() / 1000),
                         exp: Math.floor(((Date.now() / 1000) + Number.parseInt(process.env.TOKEN_TIME_EXPIRE_IN_SECOND))),
-                        navigation :JSON.stringify(navigation)
+                        accessible_entities :JSON.stringify(navigation.AccessibleEntities),
+                        accessible_operations :JSON.stringify(navigation.AccessibleOperations),
                     }
                     ,true);
                      

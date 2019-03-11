@@ -7,9 +7,6 @@ const morgan = require('morgan');
 const mongoose = require('mongoose');
 const routeConfig = require('./routeConfig');
 
-console.log(process.env);
-
-
 const port =process.env.PORT || 8080;
 const ip   =  process.env.DOMAIN ||  "0.0.0.0";
 mongoose.connect(process.env.MONGOCS);
@@ -44,7 +41,5 @@ app.get('/', function (req, res) {
 });
 
 app.listen(port, ip,function(){
-    console.log('env:');
-    console.log(process.env);
     console.log('Server running (***) on http://%s:%s', ip, port);
 });
