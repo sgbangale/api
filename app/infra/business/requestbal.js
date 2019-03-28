@@ -14,7 +14,14 @@ const requestBAL = {
         } catch (e) {            
             console.log(e);
             result.request_status = 'FAILED';
-            result.request_output_data = e;
+            if(e.name === 'MongoError' && e.code == 11000)
+            {
+                result.request_output_data ="Cannot create duplicate record in the system."    
+            }
+            else
+            {
+                result.request_output_data = e;
+            }
         }
 
         //return result;

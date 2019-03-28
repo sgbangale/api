@@ -18,6 +18,9 @@ mongoose.model('entity', mongoose.Schema({
     },
     entity_schema: {
         type:mongoose.Schema.Types.Mixed
+    },
+    entity_build:{
+        type : Boolean
     }
 }));
 module.exports = mongoose.model('entity');
