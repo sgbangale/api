@@ -1,4 +1,4 @@
 
         const mongoose = require('mongoose');
-        mongoose.model('product', mongoose.Schema({"product_name":{"type":String},"quantity":{"type":Number},"deliveryDate":{"type":Date}}));
+        mongoose.model('product', mongoose.Schema({"Name":{"type":String},"Price":{"type":Number},"Quantity":{"type":Number}}));
         module.exports = mongoose.model('product');

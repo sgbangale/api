@@ -26,6 +26,7 @@ const middleware = {
                         if(result.role_entity_access.indexOf(request_type) != -1 || result.role_entity_access.indexOf('ALL') != -1 || result.role_entity_access === 'app__settings')
                     {
                       req.LoggedInUser = decoded.User;
+                      req.all_access = result.role_entity_access;
                       next();
                     }
                     else {

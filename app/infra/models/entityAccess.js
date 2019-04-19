@@ -15,6 +15,18 @@ mongoose.model('entityAccess', mongoose.Schema({
     },
     entity_access_active: {
         type: Boolean
+    },
+    entity_schema_access:{
+        type : [String]
+    },
+    entity_access_build: {
+        type: Boolean
+    },
+    admin_entity_access: {
+        type: Boolean
+    },
+    label:{
+        type: String
     }
 }));
 module.exports = mongoose.model('entityAccess');
