@@ -2,8 +2,7 @@ const user = require("../models/user"),
   common = require("../../common/index"),
   role = require("../models/role"),
   jwt = require("jsonwebtoken"),
-  appsettings = require("../business/appsettings"),
-  viewHelper = require("../../common/helper");
+  appsettings = require("../business/appsettings");
 module.exports = {
   role__create: async req => {
     return await role.create(req.request_data);
@@ -12,10 +11,8 @@ module.exports = {
     return await role.delete(req.request_data);
   },
   role__view: async req => {
-    return await viewHelper.entityView(
-      req,
-      require("../models/role")
-    );
+    console.log(req);
+    return await role.find(req.request_data);
   },
   user__create: async req => {
     return await user.create(req.request_data);
@@ -24,10 +21,7 @@ module.exports = {
     return await user.delete(req.request_data);
   },
   user__view: async req => {
-    return await viewHelper.entityView(
-      req,
-      require("../models/user")
-    );
+    return await user.find(req.request_data);
   },
   token: async (username, password) => {
     try {

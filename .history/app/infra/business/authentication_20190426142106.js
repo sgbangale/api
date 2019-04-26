@@ -24,10 +24,7 @@ module.exports = {
     return await user.delete(req.request_data);
   },
   user__view: async req => {
-    return await viewHelper.entityView(
-      req,
-      require("../models/user")
-    );
+    return await user.find(req.request_data);
   },
   token: async (username, password) => {
     try {
